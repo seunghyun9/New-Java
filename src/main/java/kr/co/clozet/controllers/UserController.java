@@ -26,34 +26,36 @@ public class UserController {
     public String logout(){
         return "";
     }
-    @GetMapping("/findAll/pageable")
+    @GetMapping("/findAll")
     public List<User> findAll() {
         return service.findAll();
     }
+
     @GetMapping("/findAll/sort")
     public List<User> findAll(Sort sort) {
         return service.findAll(sort);
     }
+
     @GetMapping("/findAll/pageable")
     public Page<User> findAll(Pageable pageable) {
         return service.findAll(pageable);
     }
+
     @GetMapping("/count")
     public long count() {
         return service.count();
     }
+
     @PutMapping("/put")
     public void put (@RequestBody User user){
         return service.put(user);
     }
+
     @DeleteMapping("/delete")
-    public void delete(@RequestBody User user) {
-        return service.delete(user);
-    }
+    public void delete(@RequestBody User user) {return service.delete(user);}
+
     @PostMapping("/join")
-    public String save(@RequestBody User user) {
-        return service.save(user);
-    }
+    public String save(@RequestBody User user) {return service.save(user);}
 
     @GetMapping("/findById/{userid}") // {} userid 라는변수값 처리
     public Optional<User> findById(@PathVariable String userid) {
