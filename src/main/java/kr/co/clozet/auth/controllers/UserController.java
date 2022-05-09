@@ -1,8 +1,7 @@
-package kr.co.clozet.controllers;
-import kr.co.clozet.domains.User;
-import kr.co.clozet.services.UserService;
+package kr.co.clozet.auth.controllers;
+import kr.co.clozet.auth.services.UserService;
+import kr.co.clozet.auth.domains.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -22,10 +21,10 @@ public class UserController {
     public String login(@RequestBody User user){
         return service.login(user);
     }
+
     @GetMapping("/logout")
-    public String logout(){
-        return "";
-    }
+    public String logout(){return "";}
+
     @GetMapping("/findAll")
     public List<User> findAll() {
         return service.findAll();
@@ -47,12 +46,12 @@ public class UserController {
     }
 
     @PutMapping("/put")
-    public void put (@RequestBody User user){
+    public String put (@RequestBody User user){
         return service.put(user);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestBody User user) {return service.delete(user);}
+    public String delete(@RequestBody User user) {return service.delete(user);}
 
     @PostMapping("/join")
     public String save(@RequestBody User user) {return service.save(user);}

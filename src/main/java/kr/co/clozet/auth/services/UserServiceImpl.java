@@ -1,7 +1,7 @@
-package kr.co.clozet.services;
+package kr.co.clozet.auth.services;
 
-import kr.co.clozet.domains.User;
-import kr.co.clozet.repositories.UserRepository;
+import kr.co.clozet.auth.domains.User;
+import kr.co.clozet.auth.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,11 +9,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
-    private final UserRepository userRepository;
+    private final UserRepository repository;
 
     @Override
     public String login(User user) {
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Page<User> findAll(Pageable pageable) {
-        return repository.findAll();
+        return (Page<User>) repository.findAll();
     }
 
     @Override
