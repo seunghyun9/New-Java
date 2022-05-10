@@ -48,4 +48,14 @@ public class ArticleServiceImpl implements ArticleService{
         return "";
     }
 
+    @Override
+    public boolean existsById(String id) {
+        return false;
+    }
+
+    @Override
+    public Optional<Article> findById(String id) {
+        return Optional.empty();
+    }
+
 }
