@@ -3,6 +3,7 @@ package kr.co.clozet.common.dataStructure;
 import kr.co.clozet.auth.domains.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -14,29 +15,65 @@ public class MemberCRUD {
         Scanner s = new Scanner(System.in);
         MemberService service = new MemberServiceImpl();
         while(true){
-            System.out.println("0.exit 1.save 2.update 3.delete 4.findById 5.findByName 6.findAll 7.count 8.existsById");
+            System.out.println("0.exit 1.save 2.update 3.delete 4.findById 5.findByName 6.findAll 7.count 8.existsById 9.clear");
             switch (s.next()){
                 case "0":return;
                 case "1":
-                    Member m = new Member.Builder("hong")
+                    Member hong = new Member.Builder("hong")
                             .email("kim@co.kr")
                             .password("1")
                             .name("홍길동")
                             .phone("010-0000-0000")
+                            .profileImg("hong.img")
+                            .build();
+                            service.save(hong);
+                    Member kim = new Member.Builder("kim")
+                            .email("kim2@co.kr")
+                            .password("1")
+                            .name("김유신")
+                            .phone("010-0000-0000")
                             .profileImg("kim.img")
                             .build();
-                    service.save(hong);
-                case "2":break;
-                case "3":break;
-                case "4":break;
-                case "5":break;
+                            service.save(kim);
+                             break;
+                case "2":
+                    Member up = new Member();
+                    service.update(up);
+                    break;
+
+                case "3":
+                    Member temp = new Member();
+                    temp.setUserid("hong");
+                    service.delete(temp);
+                    break;
+                case "4":
+                    Member find =new Member();
+                    find.setUserid(s.next());
+                    service.findById(find.userid);
+                    String res = find.userid==null?"해당 ID가 없습니다.":"해당 ID가 있습니다.";
+                    System.out.println(res);
+                    break;
+                case "5":
+                    Member find1 =new Member();
+                    find1.setName(s.next());
+                    service.findByName(find1.name);
+                    String res1= find1.name==null?"해당 이름을 가진 가입자가 없습니다.":"해당 이름을 가진 가입자가 있습니다.";
+                    System.out.println(res1);
+                    break;
+
                 case "6":break;
-                case "7":break;
+                case "7":
+                    System.out.println("총 회원수: "+service.count()+" 명");
+                    break;
+                case "8":break;
+                case "9":
+                    service.clear();
+                    break;
                 default:break;
             }
         }
     }
-    @Data
+    @Data @NoArgsConstructor
     static class Member{
         protected String userid, name, password, profileImg, phone, email;
 
@@ -58,6 +95,11 @@ public class MemberCRUD {
             public Builder email(String email){this.email=email; return this;}
             Member build(){ return new Member(this);}
         }
+        @Override public String toString(){
+            return String.format("[사용자 스펙] userid: %s, name: %s, password: %s, profileImg: %s, phone: %s, email: %s ",
+                    userid, name, password, profileImg, phone, email);
+        }
+    }
     interface MemberService{
         void save(Member member);
         void update(Member member);
@@ -67,9 +109,10 @@ public class MemberCRUD {
         List<Member> findAll();
         int count();
         boolean existsById(String id);
+        void clear();
     }
-    @RequiredArgsConstructor @Service
-    class MemberServiceImpl implements MemberService{
+
+    static class MemberServiceImpl implements MemberService{
         private final Map<String, Member> map;
         MemberServiceImpl(){
             this.map = new HashMap<>();
@@ -113,6 +156,11 @@ public class MemberCRUD {
         @Override
         public boolean existsById(String id) {
             return map.containsKey(id);
+        }
+
+        @Override
+        public void clear() {
+            map.clear();
         }
     }
 }
