@@ -3,42 +3,51 @@ package kr.co.clozet.common.dataStructure;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * packageName:kr.co.clozet.common.dataStructure
+ * fileName        :ItemCRUD.java
+ * author          : sungsuhan
+ * date            :2022-05-10
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-10           sungsuhan      최초 생성
+ **/
+public class ItemCRUD {
 
-public class itemCRUD {
+    //domain
+    @Data @AllArgsConstructor
+    static class Item{
+        private int id;
+        private String name;
+        private int price;
+
+
+    }
+
+    //controller
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-
-    }
-}
-@Data @AllArgsConstructor @Component
-class Item{
-    protected String userid, name, password, phone, email;
-    @Override public String toString(){
-        return String.format("userid:%s",userid);
-    }
-}
-interface ItemService{
-    void save(Item item);
-    void delete(Item item);
-}
-
-@RequiredArgsConstructor @Service
-class ItemServiceImpl implements ItemService{
-    private final Map<String,Item> map;
-
-    @Override
-    public void save(Item item) {
+        ItemService service = new ItemServiceImpl();
 
     }
 
-    @Override
-    public void delete(Item item) {
+    //service
+    interface ItemService{
 
     }
+
+    static class ItemServiceImpl implements ItemService{
+        private final Map<String, Item> map;
+
+        ItemServiceImpl() {this.map = new HashMap<>();}
+
+    }
+
 }
