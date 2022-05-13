@@ -19,6 +19,7 @@ public class Box<K,V> {
     public Box(){
         this.map = new HashMap<>();
     }
+    // #반드시 구현해야 하는 기능
     public void put (K k, V v){map.put(k,v);}
     public void replace(K k, V v){map.replace(k,v);}
     public void remove(K k, V v){map.remove(k,v);}

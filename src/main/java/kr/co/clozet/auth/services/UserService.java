@@ -31,3 +31,4 @@ public interface UserService {
 
     //custom
     List<User> findByUserName(String name);
+}
