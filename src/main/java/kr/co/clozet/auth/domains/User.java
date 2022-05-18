@@ -15,12 +15,11 @@ import java.util.List;
 @Data
 @Component // 컴포넌트는 프로퍼티와 메소드의 집합이다.
 @Entity
-@Eager
+@Eager //Lazy의 반대말 즉시실행을 의미
 @Table(name="users")
 public class User {
     @Id
     @Column(name = "user_id")
-
     @GeneratedValue private long userId;
     @Column private @NotNull String username;
     @Column private @NotNull String password;
@@ -28,7 +27,7 @@ public class User {
     @Column private @NotNull String email;
     @Column(name = "reg_date") @NotNull private String regDate;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "u")
     List<Article> articles = new ArrayList<>();
     // lIST가 ALL의 의미를 갖는다 ex) findall의 리턴타입은 오직 LIST
 }

@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Data
 @Component // 컴포넌트는 프로퍼티와 메소드의 집합이다.
 @Entity
-@Eager //Lazy의 반대말 즉시실행을 의미
+
 @Table(name="articles")
 public class Article {
     @Id
@@ -23,9 +23,13 @@ public class Article {
     @Column @NotNull private String content;
     @Column(name = "written_date") @NotNull private String writtenDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private User u;
+
+    @ManyToOne
+    @JoinColumn(name = "board_id")
+    private Board b;
 
 }
 
