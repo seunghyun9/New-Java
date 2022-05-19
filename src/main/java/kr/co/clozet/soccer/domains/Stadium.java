@@ -1,22 +1,34 @@
 package kr.co.clozet.soccer.domains;
 
-import lombok.Data;
+import com.sun.istack.NotNull;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Component
 @Entity
-@Table(name="stadiums")
+@Table(name = "stadiums")
 public class Stadium {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String STADIUM_ID;
-    private String STADIUM_NAME;
-    private String HOMETEAM_ID;
-    private String SEAT_COUNT;
-    private String ADDRESS;
-    private String DDD;
-    private String TEL;
+    @Id
+    @Column(name="stadium_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private long stadiumNo;
+    @Column(nullable = false) private String stadiumId;
+    @Column private @NotNull String stadiumName;
+    @Column private @NotNull String homeTeamId;
+    @Column private @NotNull String seatCount;
+    @Column private @NotNull String address;
+    @Column private @NotNull String ddd;
+    @Column private @NotNull String tel;
+
+    @OneToMany(mappedBy = "stadium")
+    List<Schedule> schedules = new ArrayList<>();
 }

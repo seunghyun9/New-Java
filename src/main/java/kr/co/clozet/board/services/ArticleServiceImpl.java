@@ -1,6 +1,6 @@
 package kr.co.clozet.board.services;
 
-import kr.co.clozet.board.domains.Article;
+import kr.co.clozet.board.domains.Article2;
 import kr.co.clozet.board.repositories.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -17,17 +17,17 @@ public class ArticleServiceImpl implements ArticleService{
     private final ArticleRepository repository;
 
     @Override
-    public List<Article> findAll() {
+    public List<Article2> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public List<Article> findAll(Sort sort) {
+    public List<Article2> findAll(Sort sort) {
         return repository.findAll(sort);
     }
 
     @Override
-    public Page<Article> findAll(Pageable pageable) {
+    public Page<Article2> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -37,13 +37,13 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public String delete(Article article) {
+    public String delete(Article2 article) {
         repository.delete(article);
         return "";
     }
 
     @Override
-    public String save(Article article) {
+    public String save(Article2 article) {
         repository.save(article);
         return "";
     }
@@ -54,7 +54,7 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public Optional<Article> findById(String id) {
+    public Optional<Article2> findById(String id) {
         return Optional.empty();
     }
 

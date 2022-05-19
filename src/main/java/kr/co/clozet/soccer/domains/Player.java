@@ -1,26 +1,36 @@
 package kr.co.clozet.soccer.domains;
 
-import lombok.Data;
+import com.sun.istack.NotNull;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-@Entity
 @Component
-@Table(name="player")
-
+@Entity
+@Table(name = "players")
 public class Player {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String PLAYER_ID;
-    private String PLAYER_NAME;
-    private String TEAM_ID;
-    private String E_PLAYER_NAME;
-    private String NICKNAME;
-    private String JOIN_YYYY;
-    private String BIRTH_DATE;
-    private String SOLAR;
-    private String HEIGHT;
-    private String WEIGHT;
+    @Id
+    @Column(name="player_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private long playerNo;
+    @Column(nullable = false) private String playerId;
+    @Column(nullable = false) private String playerName;
+    @Column private @NotNull String ePlayerName;
+    @Column private @NotNull String nickname;
+    @Column private @NotNull String joinYyyy;
+    @Column private @NotNull String position;
+    @Column private @NotNull String backNo;
+    @Column private @NotNull String nation;
+    @Column private @NotNull String birthDate;
+    @Column private @NotNull String solar;
+    @Column private @NotNull String height;
+    @Column private @NotNull String weight;
+    @ManyToOne
+    @JoinColumn(name="team_no")
+    private Team team;
 }
