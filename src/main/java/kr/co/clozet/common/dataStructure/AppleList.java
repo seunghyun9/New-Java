@@ -8,18 +8,18 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import static kr.co.clozet.common.lambda.Lambda.*;
+import static kr.co.clozet.common.lambdas.Lambda.*;
 
 /**
  * packageName:kr.co.clozet.common.dataStructure
  * fileName        :AppleList.java
- * author          : sungsuhan
+ * author          : kimseunghyun
  * date            :2022-05-11
  * desc            :
  * =============================================
  * DATE              AUTHOR        NOTE
  * =============================================
- * 2022-05-11           sungsuhan      최초 생성
+ * 2022-05-11           kimseunghyun      최초 생성
  **/
 // Apple color price origin
 public class AppleList {

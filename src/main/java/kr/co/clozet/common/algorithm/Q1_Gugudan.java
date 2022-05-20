@@ -1,10 +1,22 @@
 package kr.co.clozet.common.algorithm;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * packageName:kr.co.clozet.common.algorithm
+ * fileName        :Q1_Gugudan.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 public class Q1_Gugudan {
     public static void main(String[] args) { // 03소수 quiz03prime()
         Scanner scanner = new Scanner(System.in);
@@ -84,6 +96,7 @@ public class Q1_Gugudan {
         // 플레이어(Math 랜덤값)와 컴퓨터(Random 랜덤값) 주사위 굴리기를 해 이기면
         // "Win", 비기면 "Draw.", 지면 "Lose"를 출력하세요.
         int player=(int)(Math.random()*6)+1;
+
         System.out.println("플레이어 숫자"+player);
         int com= new Random().nextInt(5)+1;
         System.out.println("컴퓨터 숫자"+com);

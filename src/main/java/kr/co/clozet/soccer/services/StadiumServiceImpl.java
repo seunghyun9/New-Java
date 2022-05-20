@@ -11,7 +11,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * packageName:kr.co.clozet.soccer.services
+ * fileName        :StadiumServiceImpl.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @Service
 @RequiredArgsConstructor
 public class StadiumServiceImpl implements StadiumService{
@@ -20,47 +30,49 @@ public class StadiumServiceImpl implements StadiumService{
 
     @Override
     public List<Stadium> findAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
     public List<Stadium> findAll(Sort sort) {
-        return null;
+        return repository.findAll(sort);
     }
 
     @Override
     public Page<Stadium> findAll(Pageable pageable) {
-        return null;
+        return repository.findAll(pageable);
     }
 
     @Override
     public long count() {
-        return 0;
+        return repository.count();
     }
 
     @Override
     public String put(Stadium stadium) {
-        return null;
+        return "";
     }
 
     @Override
     public String delete(Stadium stadium) {
-        return null;
+        repository.delete(stadium);
+        return "";
     }
 
     @Override
     public String save(Stadium stadium) {
-        return null;
+        repository.save(stadium);
+        return "";
     }
 
     @Override
     public Optional<Stadium> findById(String stadiumid) {
-        return Optional.empty();
+        return repository.findById(0L);
     }
 
     @Override
     public boolean existsById(String stadiumid) {
-        return false;
+        return repository.existsById(0L);
     }
 
     @Override

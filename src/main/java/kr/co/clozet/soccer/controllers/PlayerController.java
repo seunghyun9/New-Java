@@ -1,5 +1,6 @@
 package kr.co.clozet.soccer.controllers;
 
+import kr.co.clozet.auth.domains.User;
 import kr.co.clozet.soccer.domains.Player;
 import kr.co.clozet.soccer.services.PlayerService;
 import lombok.RequiredArgsConstructor;
@@ -11,9 +12,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * packageName:kr.co.clozet.soccer.controllers
+ * fileName        :SoccerController.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/player")
+@RequestMapping("/players")
 public class PlayerController {
 
     private final PlayerService service;

@@ -11,55 +11,68 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * packageName:kr.co.clozet.soccer.services
+ * fileName        :ScheduleServiceImpl.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @Service
 @RequiredArgsConstructor
-public class ScheduleServiceImpl implements ScheduleService{
+public class ScheduleServiceImpl implements ScheduleService {
+
     private final ScheduleRepository repository;
 
     @Override
     public List<Schedule> findAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
     public List<Schedule> findAll(Sort sort) {
-        return null;
+        return repository.findAll(sort);
     }
 
     @Override
     public Page<Schedule> findAll(Pageable pageable) {
-        return null;
+        return repository.findAll(pageable);
     }
 
     @Override
     public long count() {
-        return 0;
+        return repository.count();
     }
 
     @Override
     public String put(Schedule schedule) {
-        return null;
+        return "";
     }
 
     @Override
     public String delete(Schedule schedule) {
-        return null;
+        repository.delete(schedule);
+        return "";
     }
 
     @Override
     public String save(Schedule schedule) {
-        return null;
+        repository.save(schedule);
+        return "";
     }
 
     @Override
     public Optional<Schedule> findById(String Schedule) {
-        return null;
+        return repository.findById(0L);
     }
 
     @Override
     public boolean existsById(String Schedule) {
-        return false;
+        return repository.existsById(0L);
     }
 
     @Override

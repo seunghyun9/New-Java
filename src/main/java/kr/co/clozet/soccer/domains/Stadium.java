@@ -1,6 +1,5 @@
 package kr.co.clozet.soccer.domains;
 
-import com.sun.istack.NotNull;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -8,16 +7,26 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * packageName:kr.co.clozet.soccer.domains
+ * fileName        :Stadium.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @Builder
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@Data
+@AllArgsConstructor
 @Component
 @Entity
-@Table(name = "stadiums")
+@Table(name="stadiums")
 public class Stadium {
+
     @Id
     @Column(name = "stadium_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY) private long stadiumNo;
@@ -31,4 +40,7 @@ public class Stadium {
 
     @OneToMany(mappedBy = "stadium")
     List<Schedule> schedules = new ArrayList<>();
+
+
+
 }

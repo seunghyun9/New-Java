@@ -11,13 +11,13 @@ import java.util.Scanner;
 /**
  * packageName:kr.co.clozet.common.dataStructure
  * fileName        :MemberCRUD.java
- * author          : sungsuhan
+ * author          : kimseunghyun
  * date            :2022-05-09
  * desc            :
  * =============================================
  * DATE              AUTHOR        NOTE
  * =============================================
- * 2022-05-09           sungsuhan      최초 생성
+ * 2022-05-09           kimseunghyun      최초 생성
  **/
 public class MemberCRUD {
 

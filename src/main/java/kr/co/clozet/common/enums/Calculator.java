@@ -5,24 +5,49 @@ import org.junit.jupiter.api.Test;
 
 import java.util.function.BiFunction;
 
+/**
+ * packageName:kr.co.clozet.common.enums
+ * fileName        :Calculator.java
+ * author          : kimseunghyun
+ * date            :2022-05-13
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-13           kimseunghyun      최초 생성
+ **/
 public class Calculator {
 
-    @RequiredArgsConstructor enum Operation{
-        PLUS("+",(x,y)->(x+y)),
-        MINUS("-",(x,y)->(x-y)),
-        MULTI("*",(x,y)->(x*y)),
-        DIV("/",(x,y)->(x/y))
-        ; // +,-가 enum 처리 될 상수들
+    @RequiredArgsConstructor
+    enum Operation{
+        PLUS("+", (x, y) -> x + y),
+        MINUS("-", (x, y) -> x - y),
+        MULTI("*", (x, y) -> x * y),
+        DIVIDE("/", (x, y) -> x / y)
+        ;
+
         private final String opcode;
-        private final BiFunction<Integer, Integer, Integer> f; //Alt + Enter 로 둘 다 잡고 Enter
-        @Override public String toString() {return opcode;}
-        public int execute (int a, int b){return f.apply(a,b);}// 호출해서 진짜 내부에서 작동하는건 f.apply, CallBack함수
+        private final BiFunction<Integer, Integer, Integer> expression;
+
+        @Override
+        public String toString() {
+            return opcode;
+        }
+        public int apply(int a, int b){
+            return expression.apply(a, b);
+        }
     }
+
+
     @Test
-        void calculatorTest(){
-        System.out.println("+:" + Operation.PLUS.execute(7,5));
-        System.out.println("-:" + Operation.MINUS.execute(7,5));
-        System.out.println("*:" + Operation.MULTI.execute(7,5));
-        System.out.println("/:" + Operation.DIV.execute(7,5));
+    void calculatorTest() {
+        System.out.println("+: "+Operation.PLUS.apply(7,3));
+        System.out.println("-: "+Operation.MINUS.apply(7,3));
+        System.out.println("*: "+Operation.MULTI.apply(7,3));
+        System.out.println("/: "+Operation.DIVIDE.apply(7,3));
     }
-    }
+
+
+
+
+}

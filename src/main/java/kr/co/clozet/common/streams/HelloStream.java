@@ -1,16 +1,27 @@
 package kr.co.clozet.common.streams;
 
-import kr.co.clozet.common.dataStructure.AppleApp;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * packageName:kr.co.clozet.common.streams
+ * fileName        :HelloStream.java
+ * author          : kimseunghyun
+ * date            :2022-05-16
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-16           kimseunghyun      최초 생성
+ **/
+// 한국어로 안녕, 영어로 Hello
 public class HelloStream {
     @Builder
     @NoArgsConstructor
@@ -21,19 +32,19 @@ public class HelloStream {
 
         @Override
         public String toString() {
-            return String.format(" 인사 : %s, %s", inLanguage,greeting);
+            return String.format("인사 : %s, %s", inLanguage,greeting);
         }
     }
     interface HelloService{
-        Set<Hello> greet(List<Hello> arr);
+        List<Hello> greet(List<Hello> arr);
     }
     static class HelloServiceImpl implements HelloService{
         @Override
-        public Set<Hello> greet(List<Hello> arr) {
+        public List<Hello> greet(List<Hello> arr) {
             return arr
                     .stream()
                     .filter(e -> e.getInLanguage().equals("영어"))
-                    .collect(Collectors.toSet());
+                    .collect(Collectors.toList());
         }
     }
     @Test

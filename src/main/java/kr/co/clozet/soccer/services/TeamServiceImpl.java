@@ -11,7 +11,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * packageName:kr.co.clozet.soccer.services
+ * fileName        :TeamServiceImpl.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @Service
 @RequiredArgsConstructor
 public class TeamServiceImpl implements TeamService {
@@ -20,47 +30,49 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public List<Team> findAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
     public List<Team> findAll(Sort sort) {
-        return null;
+        return repository.findAll(sort);
     }
 
     @Override
     public Page<Team> findAll(Pageable pageable) {
-        return null;
+        return repository.findAll(pageable);
     }
 
     @Override
     public long count() {
-        return 0;
+        return repository.count();
     }
 
     @Override
     public String put(Team team) {
-        return null;
+        return "";
     }
 
     @Override
     public String delete(Team team) {
-        return null;
+        repository.delete(team);
+        return "";
     }
 
     @Override
     public String save(Team team) {
-        return null;
+        repository.save(team);
+        return "";
     }
 
     @Override
     public Optional<Team> findById(String teamid) {
-        return Optional.empty();
+        return repository.findById(0L);
     }
 
     @Override
     public boolean existsById(String teamid) {
-        return false;
+        return repository.existsById(0L);
     }
 
     @Override

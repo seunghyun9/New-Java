@@ -5,29 +5,50 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
 
-@Data@Component@Lazy
+/**
+ * packageName:kr.co.clozet.common.dataStructure
+ * fileName        :Vector.java
+ * author          : kimseunghyun
+ * date            :2022-05-12
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-12           kimseunghyun      최초 생성
+ **/
+@Component @Data @Lazy
 public class Vector<T> {
-    private ArrayList<T> list; // 내가 넣는 타입으로 그때그때 바뀐다.
-    public Vector(){this.list=new ArrayList<>();}
-    public void add(T t){ //T는 타입 , Ex Stiring 과 같음
+    private final ArrayList<T> list;
+
+    public Vector() {
+        this.list = new ArrayList<>();
+    }
+
+    public void add(T t) {
         list.add(t);
     }
-    public void set(int i, T t){list.set(i,t);}
-    public void remove(T t){
+    public void set(int i, T t) {
+        list.set(i, t);
+    }
+    public void remove(T t) {
         list.remove(t);
     }
-    public T get(int i){
+    public ArrayList<T> findAll() {
+        return list;
+    }
+    public T get(int i) {
         return list.get(i);
     }
-    public List<T> get(T t){
-        return null;
-    }
-    public void clear(){
-        list.clear();
-    }
-    public int size(){
+    public int size() {
         return list.size();
     }
+    public void claer() {
+        list.clear();
+    }
+
+
+
+
+
 }

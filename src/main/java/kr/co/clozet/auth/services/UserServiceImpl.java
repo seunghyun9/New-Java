@@ -12,14 +12,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
+
     private final UserRepository repository;
+
 
     @Override
     public String login(User user) {
-        return repository.login(user);
+        return null;
     }
 
     @Override
@@ -29,12 +32,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findAll(Sort sort) {
-        return repository.findAll();
+        return repository.findAll(sort);
     }
 
     @Override
     public Page<User> findAll(Pageable pageable) {
-        return (Page<User>) repository.findAll();
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -44,7 +47,6 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public String put(User user) {
-        repository.put(user);
         return "";
     }
 
@@ -57,25 +59,28 @@ public class UserServiceImpl implements UserService{
     @Override
     public String save(User user) {
         repository.save(user);
-        return null;
+        return "";
     }
 
     @Override
     public Optional<User> findById(String userid) {
-        return repository.findById(0L); // userid 타입이 다름
+        return repository.findById(0L);
     }
 
     @Override
     public boolean existsById(String userid) {
-        return repository.existsById(0L); // userid 타입이 다름
+        return repository.existsById(0L);
     }
 
+    // custom
     @Override
     public List<User> findByUserName(String name) {
         List<User> ls = repository.findAll();
-        Box<String,User> box = new Box<>();
-        //ls = box.findByUserName(ls, name);
-        //ls.stream().filter(...)
+        Box<String, User> box = new Box<>();
+        // ls = box.findByUserName(ls, name);
+        // ls.stream().filter(...)
         return null;
     }
+
+
 }
