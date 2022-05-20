@@ -31,7 +31,7 @@ interface TeamCustomRepository{
     List<String> findTeamNamesAsc();
 
     // 005-2. 수원팀의 ID는 ?
-  
+
 }
 
 @Repository
