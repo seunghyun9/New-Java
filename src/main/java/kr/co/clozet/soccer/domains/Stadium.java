@@ -19,15 +19,15 @@ import java.util.List;
 @Table(name = "stadiums")
 public class Stadium {
     @Id
-    @Column(name="stadium_no")
+    @Column(name = "stadium_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY) private long stadiumNo;
     @Column(nullable = false) private String stadiumId;
-    @Column private @NotNull String stadiumName;
-    @Column private @NotNull String homeTeamId;
-    @Column private @NotNull String seatCount;
-    @Column private @NotNull String address;
-    @Column private @NotNull String ddd;
-    @Column private @NotNull String tel;
+    private String stadiumName;
+    private String hometeamId;
+    private String seatCount;
+    private String address;
+    private String ddd;
+    private String tel;
 
     @OneToMany(mappedBy = "stadium")
     List<Schedule> schedules = new ArrayList<>();

@@ -9,6 +9,6 @@ interface UserCustomRepository{
     String login(User user);
 }
 @Repository
-public interface UserRepository extends JpaRepository<User,Long>,UserCustomRepository {
+public interface UserRepository extends JpaRepository<User,Long> {
 
 }

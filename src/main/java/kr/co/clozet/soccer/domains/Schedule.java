@@ -16,17 +16,18 @@ import javax.persistence.*;
 @Table(name = "schedules")
 public class Schedule {
     @Id
+    @Column(name = "schedule_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY) private long scheduleNo;
-    @Column(nullable = false) private String scheduleId;
-    @Column @NotNull private String scheDate;
-    @Column @NotNull private String gubun;
-    @Column @NotNull private String homeTeamid;
-    @Column @NotNull private String awayTeamid;
-    @Column @NotNull private String homeScore;
-    @Column @NotNull private String awayScore;
+    private String scheDate;
+    private String gubun;
+    private String hometeamId;
+    private String awayteamId;
+    private String homeScore;
+    private String awayScore;
+    private String stadiumId;
 
-    @ManyToOne
-    @JoinColumn(name="stadium_no")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stadium_no")
     private Stadium stadium;
 
 }
