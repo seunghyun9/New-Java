@@ -1,4 +1,4 @@
-package kr.co.clozet.config;
+package kr.co.clozet.security.configs;
 
 
 import org.springframework.context.annotation.Configuration;
