@@ -9,8 +9,19 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-
+/**
+ * packageName:kr.co.clozet.services
+ * fileName        :BoardServiceImpl.java
+ * author          : kimseunghyun
+ * date            :2022-05-04
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-04           kimseunghyun      최초 생성
+ **/
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
@@ -46,5 +57,15 @@ public class BoardServiceImpl implements BoardService {
     public String save(Board board) {
         repository.save(board);
         return "";
+    }
+
+    @Override
+    public Optional<Board> findById(String board) {
+        return repository.findById(0L);
+    }
+
+    @Override
+    public boolean existsById(String board) {
+        return repository.existsById(0L);
     }
 }

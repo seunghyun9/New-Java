@@ -6,8 +6,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
+import java.util.Optional;
 
-
+/**
+ * packageName:kr.co.clozet.services
+ * fileName        :BoardService.java
+ * author          : kimseunghyun
+ * date            :2022-05-04
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-04           kimseunghyun      최초 생성
+ **/
 public interface BoardService {
     List<Board> findAll();
 
@@ -20,4 +31,8 @@ public interface BoardService {
     String delete(Board board);
 
     String save(Board board);
+
+    Optional<Board> findById(String board);
+
+    boolean existsById(String board);
 }

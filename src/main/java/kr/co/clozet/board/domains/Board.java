@@ -11,7 +11,17 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * packageName:kr.co.clozet.auth.domains
+ * fileName        :Board.java
+ * author          : kimseunghyun
+ * date            :2022-05-18
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-18           kimseunghyun      최초 생성
+ **/
 @Builder
 @Getter
 @NoArgsConstructor

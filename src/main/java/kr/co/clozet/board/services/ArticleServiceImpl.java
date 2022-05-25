@@ -9,8 +9,19 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-
+/**
+ * packageName:kr.co.clozet.board.services
+ * fileName        :ArticleServiceImpl.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @Service
 @RequiredArgsConstructor
 public class ArticleServiceImpl implements ArticleService{
@@ -48,5 +59,15 @@ public class ArticleServiceImpl implements ArticleService{
     public String save(Article article) {
         repository.save(article);
         return "";
+    }
+
+    @Override
+    public Optional<Article> findById(String article) {
+        return repository.findById(0L);
+    }
+
+    @Override
+    public boolean existsById(String article) {
+        return repository.existsById(0L);
     }
 }

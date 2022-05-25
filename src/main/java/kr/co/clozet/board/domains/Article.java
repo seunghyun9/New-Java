@@ -1,13 +1,23 @@
 package kr.co.clozet.board.domains;
 
 import com.sun.istack.NotNull;
-import kr.co.clozet.auth.domains.User;
+import kr.co.clozet.user.domains.User;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-
+/**
+ * packageName:kr.co.clozet.auth.domains
+ * fileName        :Article.java
+ * author          : kimseunghyun
+ * date            :2022-05-18
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-18           kimseunghyun      최초 생성
+ **/
 @Builder
 @Getter
 @NoArgsConstructor

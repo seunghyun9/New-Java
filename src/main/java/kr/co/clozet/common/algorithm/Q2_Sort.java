@@ -3,7 +3,17 @@ package kr.co.clozet.common.algorithm;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * packageName:kr.co.clozet.common.algorithm
+ * fileName        :Q2_Sort.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 public class Q2_Sort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

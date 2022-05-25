@@ -2,7 +2,6 @@ package kr.co.clozet.soccer.repositories;
 
 import kr.co.clozet.soccer.domains.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -22,9 +21,9 @@ import java.util.List;
  **/
 interface PlayerCustomRepository{
     // 선수들의 키와 몸무게를 변경하시오
-    @Modifying
-    @Query(value="")
-    int update();
+    @Query(value="update player p set p.height = :height, p.weight = :weight where p.playerNo = :playerNo",
+            nativeQuery = true)
+    int update(@Param("height") String height, @Param("weight") String weight);
 
     // 002. 플레이어의 포지션 종류를 나열하시오.단 중복은 제거하시오
     @Query(value = "select distinct p.position from Player p")
@@ -41,12 +40,12 @@ interface PlayerCustomRepository{
     // 단 수원팀 ID는 K02 입니다.
     @Query(value = "select p.playerName \n"
             + "from Player p \n"
-            + "where p.teamId like :#{#paramPlayer.teamId} \n"
+            + "where p.teamId like :teamId \n"
             + "and p.playerName like :#{#paramPlayer.familyName} \n"
             + "and p.height >= :#{#paramPlayer.height}")
-    List<Player> findPlayers(@Param(value = "paramPlayer") Player player);
+    List<Player> findPlayers(@Param(value = "paramPlayer") Player player, @Param(value = "paramPlayer") String teamId);
 }
 
 @Repository
-public interface PlayerRepository extends JpaRepository<Player, Long> {
+public interface PlayerRepository extends JpaRepository<Player, Long>{
 }

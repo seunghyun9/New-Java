@@ -7,7 +7,17 @@ import lombok.NoArgsConstructor;
 import org.junit.jupiter.api.Test;
 
 
-
+/**
+ * packageName:kr.co.clozet.common.algorithm
+ * fileName        :Fruits.java
+ * author          : kimseunghyun
+ * date            :2022-05-17
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-17           kimseunghyun      최초 생성
+ **/
 public class Fruits {
     @Builder
     @NoArgsConstructor

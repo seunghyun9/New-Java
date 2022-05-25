@@ -9,9 +9,20 @@ import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
-
+/**
+ * packageName:kr.co.clozet.board.controllers
+ * fileName        :ArticleController.java
+ * author          : kimseunghyun
+ * date            :2022-05-09
+ * desc            :
+ * =============================================
+ * DATE              AUTHOR        NOTE
+ * =============================================
+ * 2022-05-09           kimseunghyun      최초 생성
+ **/
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/articles")
@@ -44,10 +55,19 @@ public class ArticleController {
         return service.delete(article);
     }
 
-    @PostMapping("/save")
+    @PostMapping("/join")
     public String save(@RequestBody Article article) {
         return service.save(article);
     }
 
+    @GetMapping("/findById/{article}")
+    public Optional<Article> findById(@PathVariable String article) {
+        return service.findById(article);
+    }
+
+    @GetMapping("/existsById/{article}")
+    public boolean existsById(@PathVariable String article) {
+        return service.existsById(article);
+    }
 
 }

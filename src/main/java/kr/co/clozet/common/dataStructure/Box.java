@@ -1,6 +1,6 @@
 package kr.co.clozet.common.dataStructure;
 
-import kr.co.clozet.auth.domains.User;
+import kr.co.clozet.user.domains.User;
 import lombok.Data;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,5 @@
 package kr.co.clozet.soccer.controllers;
 
-import kr.co.clozet.auth.domains.User;
 import kr.co.clozet.soccer.domains.Team;
 import kr.co.clozet.soccer.services.TeamService;
 import lombok.RequiredArgsConstructor;

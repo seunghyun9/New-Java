@@ -1,6 +1,5 @@
 package kr.co.clozet.soccer.controllers;
 
-import kr.co.clozet.auth.domains.User;
 import kr.co.clozet.soccer.domains.Player;
 import kr.co.clozet.soccer.services.PlayerService;
 import lombok.RequiredArgsConstructor;
@@ -71,7 +70,7 @@ public class PlayerController {
         return service.findById(playerid);
     }
 
-    @GetMapping("/existsById/{playerrid}")
+    @GetMapping("/existsById/{playerid}")
     public boolean existsById(@PathVariable String playerid) {
         return service.existsById(playerid);
     }

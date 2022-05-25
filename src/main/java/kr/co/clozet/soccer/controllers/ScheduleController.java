@@ -1,6 +1,5 @@
 package kr.co.clozet.soccer.controllers;
 
-import kr.co.clozet.auth.domains.User;
 import kr.co.clozet.soccer.domains.Schedule;
 import kr.co.clozet.soccer.services.ScheduleService;
 import lombok.RequiredArgsConstructor;
