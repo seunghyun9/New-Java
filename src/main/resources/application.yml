@@ -12,8 +12,15 @@ spring:
       hibernate:
         format_sql: true #To beautify or pretty print the SQL
         show_sql: true #show sql
+
 security:
   jwt:
+    token:
+      security-key: secret-key
+      expiration-length: 3600000
+
+server:
+  port: 8080
 
 logging:
   level:

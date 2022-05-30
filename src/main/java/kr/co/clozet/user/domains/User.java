@@ -2,6 +2,7 @@ package kr.co.clozet.user.domains;
 
 import com.sun.istack.NotNull;
 import kr.co.clozet.board.domains.Article;
+import kr.co.clozet.closet.domains.Closet;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,9 @@ import java.util.List;
  * =============================================
  * 2022-05-03           kimseunghyun      최초 생성
  **/
+@ToString
+@Setter // modelMapper 를 사용하기 위해
+
 @Builder
 @Getter
 @NoArgsConstructor
@@ -34,17 +38,19 @@ public class User {
     @Column private @NotNull String username;
     @Column private @NotNull String password;
     @Column private @NotNull String name;
+    @Column private @NotNull String birth;
+    @Column private @NotNull String nickname;
     @Column private @NotNull String email;
-    @Column(name = "reg_date") @NotNull private String regDate;
+    @Column private @NotNull String phone;
 
     @OneToMany(mappedBy = "user")
     List<Article> articles = new ArrayList<>();
 
+    @OneToOne(mappedBy = "user")
+    private Closet closet;
+
     @ElementCollection(fetch = FetchType.EAGER)
     public List<Role> roles;
-
-
-
 
 
 }

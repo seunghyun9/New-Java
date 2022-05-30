@@ -1,10 +1,12 @@
 package kr.co.clozet.user.controllers;
 
+import io.swagger.annotations.*;
 import kr.co.clozet.auth.domains.Messenger;
 import kr.co.clozet.user.domains.User;
 import kr.co.clozet.user.domains.UserDTO;
 import kr.co.clozet.user.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -25,15 +27,23 @@ import java.util.Optional;
  * =============================================
  * 2022-05-03           kimseunghyun      최초 생성
  **/
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@Api(tags ="users")
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService service;
+    private final ModelMapper modelMapper;
 
     @PostMapping("/login")
-    public ResponseEntity<UserDTO> login(@RequestBody User user) {
+    @ApiOperation(value ="${UserController.login")
+    @ApiResponses(value = {
+            @ApiResponse(code = 400, message = "Something Wrong"),
+            @ApiResponse(code = 422, message = "유효하지 않은 아이디 / 비밀번호")
+    })
+    public ResponseEntity<UserDTO> login(@ApiParam("Login User") @RequestBody UserDTO user) {
         return ResponseEntity.ok(service.login(user));
     }
 
@@ -74,7 +84,14 @@ public class UserController {
     }
 
     @PostMapping("/join")
-    public ResponseEntity<Messenger> save(@RequestBody User user) {
+    @ApiOperation(value = "${UserController.join}")
+    @ApiResponses(value = {
+            @ApiResponse(code = 400, message = "Something Wrong"),
+            @ApiResponse(code = 403, message = "승인거절"),
+            @ApiResponse(code = 422, message = "중복된 ID")
+    })
+    public ResponseEntity<Messenger> save(@ApiParam("Join User") @RequestBody UserDTO user) {
+        System.out.println("회원가입 정보: "+user.toString()); // 확인만 하려구...지워야함
         return ResponseEntity.ok(service.save(user));
     }
 

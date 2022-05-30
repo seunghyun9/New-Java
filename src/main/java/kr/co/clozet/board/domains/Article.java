@@ -31,8 +31,13 @@ public class Article {
     @Column(name = "article_id")
     @GeneratedValue private long articleId;
     @Column @NotNull private String title;
-    @Column @NotNull private String content;
     @Column(name = "written_date") @NotNull private String writtenDate;
+    @Column @NotNull private String inquiry;
+    @Column @NotNull private String open;
+    @Column @NotNull private String content;
+    @Column @NotNull private String picture;
+    @Column @NotNull private String height;
+    @Column @NotNull private String weight;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

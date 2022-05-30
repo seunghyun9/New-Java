@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static kr.co.clozet.common.dataStructure.AppleList.Apple;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.function.*;
 
@@ -25,6 +26,10 @@ public class Lambda {
     public static int integer(String arg){
         Function<String, Integer> f = Integer::parseInt;
         return f.apply(arg);
+    }
+    public static String date(){
+        Supplier<String> s = () -> string(LocalDate.now());
+        return s.get();
     }
     public static long longParse(String s){
         Function<String, Long> f = Long::parseLong;

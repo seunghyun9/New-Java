@@ -1,6 +1,7 @@
 package kr.co.clozet.board.domains;
 
 import com.sun.istack.NotNull;
+import kr.co.clozet.closet.domains.Clothes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,14 +34,26 @@ public class Board {
 
     @Id
     @Column(name = "board_id")
-    @GeneratedValue
-    private long boardId;
-    @Column private @NotNull
-    String boardName;
+    @GeneratedValue private long boardId;
+    @Column private String open;
+    @Column private String picture;
+    @Column private String comment;
+    @Column private @NotNull String height;
+    @Column private @NotNull String weight;
     @Column(name = "created_date") @NotNull private String createdDate;
+    @Column private @NotNull String inquiry;
+    @Column private @NotNull String title;
+    @Column private @NotNull String content;
+    @Column private @NotNull String likes;
+    @Column private @NotNull String season;
+    @Column private @NotNull String color;
 
     @OneToMany(mappedBy = "board")
     List<Article> articles = new ArrayList<>();
+
+    @OneToMany(mappedBy = "board")
+    List<Clothes> clothes = new ArrayList<>();
+
 
 
 

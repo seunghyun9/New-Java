@@ -23,8 +23,10 @@ public class UserDTO {
     @ApiModelProperty(position = 2) String username;
     @ApiModelProperty(position = 3) String password;
     @ApiModelProperty(position = 4) String name;
-    @ApiModelProperty(position = 5) String email;
-    @ApiModelProperty(position = 6) private String regDate;
-    @ApiModelProperty(position = 7) private String token;
-    @ApiModelProperty(position = 8) private List<Role> roles;
+    @ApiModelProperty(position = 5) String birth;
+    @ApiModelProperty(position = 6) String nickname;
+    @ApiModelProperty(position = 7) String email;
+    @ApiModelProperty(position = 8) String phone;
+    @ApiModelProperty(position = 9) private String token;
+    @ApiModelProperty(position = 10) private List<Role> roles;
 }
